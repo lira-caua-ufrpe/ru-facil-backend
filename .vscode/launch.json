@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ServicoPagamentoFaturamentoApplication<servico-pagamento-faturamento>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "br.ufrpe.rufacil.pagamento.ServicoPagamentoFaturamentoApplication",
+            "projectName": "servico-pagamento-faturamento",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
