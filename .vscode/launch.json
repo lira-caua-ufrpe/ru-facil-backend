@@ -9,6 +9,16 @@
             "projectName": "servico-pagamento-faturamento",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ServicoRefeicaoReservaApplication<servico-refeicao-reserva>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "br.ufrpe.rufacil.reserva.ServicoRefeicaoReservaApplication",
+            "projectName": "servico-refeicao-reserva",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
