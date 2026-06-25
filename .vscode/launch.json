@@ -19,6 +19,16 @@
             "projectName": "servico-refeicao-reserva",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ServicoCatracaApplication<servico-catraca>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "br.ufrpe.rufacil.catraca.ServicoCatracaApplication",
+            "projectName": "servico-catraca",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
