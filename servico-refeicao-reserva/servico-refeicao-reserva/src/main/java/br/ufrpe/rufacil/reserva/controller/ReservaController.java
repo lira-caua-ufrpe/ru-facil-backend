@@ -27,6 +27,10 @@ public class ReservaController {
     @Autowired
     private ReservaRepository reservaRepository;
 
+    // INJETADO AQUI: Agora ele usa o RestTemplate que sabe ler os nomes lógicos do Eureka
+    @Autowired
+    private RestTemplate restTemplate;
+
     @PostMapping
     public ResponseEntity<Map<String, Object>> criarReserva(@RequestBody RequestReservaDTO dados) {
         if (dados.getCpf() == null || dados.getTipoRefeicao() == null) {
@@ -35,8 +39,8 @@ public class ReservaController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(erro);
         }
 
-        RestTemplate restTemplate = new RestTemplate();
-        String urlPagamentoService = "http://localhost:8082/api/v1/pagamentos/sigaa/" + dados.getCpf();
+        // MUDANÇA AQUI: Trocamos o localhost:8082 pelo nome do serviço "servico-pagamento"
+        String urlPagamentoService = "http://servico-pagamento/api/v1/pagamentos/sigaa/" + dados.getCpf();
         
         try {
             // Lendo como Map genérico para extrair o valor bruto e evitar problemas com DTO
@@ -56,7 +60,7 @@ public class ReservaController {
                 }
             }
             
-            // Se for ISENTO, o status vira "PAGO" (ou "CONFIRMADA_AUTOMATICAMENTE", o que sua catraca checar)
+            // Se for ISENTO, o status vira "PAGO"
             String status = "ISENTO".equals(categoria) ? "PAGO" : "AGUARDANDO_PAGAMENTO";
             String msg = "ISENTO".equals(categoria) ? "Reserva liberada sem custos! Bom almoço." : "Gere o pagamento Pix para liberar o QR Code de acesso.";
 

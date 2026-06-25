@@ -3,6 +3,7 @@ package br.ufrpe.rufacil.catraca.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,12 +18,14 @@ import br.ufrpe.rufacil.catraca.model.RequisicaoCatracaDTO;
 @RequestMapping("/api/v1/catraca")
 public class CatracaController {
 
-    private final RestTemplate restTemplate = new RestTemplate();
+    // Substituímos o "new RestTemplate()" pelo @Autowired para usar o Bean balanceado pelo Eureka
+    @Autowired
+    private RestTemplate restTemplate;
 
     @PostMapping("/passar-carteirinha")
     public ResponseEntity<?> validarAcesso(@RequestBody RequisicaoCatracaDTO requisicao) {
-        // Aponta direto para a porta 8081 da Reserva
-        String urlReserva = "http://localhost:8081/api/v1/reservas/validar/" + requisicao.getCpf() + "/" + requisicao.getTurno();
+        // MUDANÇA AQUI: Trocamos "localhost:8081" pelo ID do serviço no Eureka "servico-reserva"
+        String urlReserva = "http://servico-reserva/api/v1/reservas/validar/" + requisicao.getCpf() + "/" + requisicao.getTurno();
 
         try {
             Map<?, ?> resposta = restTemplate.getForObject(urlReserva, Map.class);
