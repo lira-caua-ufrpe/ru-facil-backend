@@ -1,0 +1,64 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ApiGatewayApplication<API-Gateway>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.API.Gateway.ApiGatewayApplication",
+            "projectName": "API-Gateway",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ServiceDiscoveryApplication<service-discovery>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "br.ufrpe.rufacil.discovery.ServiceDiscoveryApplication",
+            "projectName": "service-discovery",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ServicoAcessoApplication<servico-acesso>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.servico_acesso.ServicoAcessoApplication",
+            "projectName": "servico-acesso",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ServicoCatracaApplication<servico-catraca>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "br.ufrpe.rufacil.catraca.ServicoCatracaApplication",
+            "projectName": "servico-catraca",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ServicoPagamentoFaturamentoApplication<servico-pagamento-faturamento>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "br.ufrpe.rufacil.pagamento.ServicoPagamentoFaturamentoApplication",
+            "projectName": "servico-pagamento-faturamento",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ServicoRefeicaoReservaApplication<servico-refeicao-reserva>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "br.ufrpe.rufacil.reserva.ServicoRefeicaoReservaApplication",
+            "projectName": "servico-refeicao-reserva",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
